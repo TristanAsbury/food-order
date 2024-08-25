@@ -10,14 +10,6 @@ export interface FoodItemProps extends HTMLProps<HTMLDivElement> {
   onAdd: () => void
 }
 
-const FoodView: React.FC<HTMLProps<HTMLDivElement>> = ({...props}) => {
-  return (
-    <div {...props} className="flex flex-col gap-2">
-      <div></div>
-    </div>
-  )
-}
-
 function App() {
   const foodItems = data as FoodItem[];
 
@@ -141,11 +133,13 @@ function App() {
                       <BiCartAdd size={20} className="text-food-red m-4 md:my-2"></BiCartAdd> <p className="mr-4">Add to Cart</p>
                     </button>}
 
-                    {cartItems.get(fi) > 0 && <div className="text-white w-1/2 justify-between absolute -bottom-6 md:-bottom-4 bg-food-red left-1/2 -translate-x-1/2 rounded-full hover:scale-105 active:scale-100 transition-all flex flex-row items-center gap-2 text-md font-medium font-header text-nowrap">
-                      <button className="h-full md:p-2 p-4" onClick={() => removeItem(fi)}><CiCircleMinus strokeWidth={1} size={20}/></button>
-                      <p>{cartItems.get(fi)}</p>
-                      <button className="h-full md:p-2 p-4" onClick={() => addItem(fi)}><CiCirclePlus strokeWidth={1} size={20}/></button>
-                    </div>}
+                    {cartItems.get(fi)! > 0 && 
+                      <div className="text-white w-1/2 justify-between absolute -bottom-6 md:-bottom-4 bg-food-red left-1/2 -translate-x-1/2 rounded-full hover:scale-105 active:scale-100 transition-all flex flex-row items-center gap-2 text-md font-medium font-header text-nowrap">
+                        <button className="h-full md:p-2 p-4" onClick={() => removeItem(fi)}><CiCircleMinus strokeWidth={1} size={20}/></button>
+                        <p>{cartItems.get(fi)}</p>
+                        <button className="h-full md:p-2 p-4" onClick={() => addItem(fi)}><CiCirclePlus strokeWidth={1} size={20}/></button>
+                      </div>
+                    }
 
                     <img className={`rounded-lg min-w-0 ${cartItems.get(fi) ? 'ring-2 ring-food-red' : ''}`} src={fi.image.desktop} alt="" />
                   </div>
