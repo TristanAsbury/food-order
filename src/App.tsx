@@ -201,7 +201,7 @@ function App() {
             {
             cartItems.size == 0 && 
             <div>
-              <img src="/assets/images/illustration-empty-cart.svg" className="m-auto p-8"></img>
+              <img src="./assets/images/illustration-empty-cart.svg" className="m-auto p-8"></img>
               <p className="font-base text-rose-500 text-center">Your added items will appear here.</p>
             </div>
             }
