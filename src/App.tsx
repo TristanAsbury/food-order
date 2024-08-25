@@ -205,7 +205,6 @@ function App() {
               <p className="font-base text-rose-500 text-center">Your added items will appear here.</p>
             </div>
             }
-              
           </div>
         </div>
       </div>
